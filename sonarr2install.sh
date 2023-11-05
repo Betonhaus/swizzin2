@@ -19,12 +19,15 @@ fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (sonarr4k):"
 read arrsysname
-if test -z "$arrurl" then
+if test -z "$arrsysname" then
     arrsysname = "sonarr4k"
 fi
 #code here to find random unused ports
 echo "Port for new server (8882):"
 read arrport
+if test -z "$arrsort" then
+    arrsort = "8882"
+fi
 
 echo "Secure port for new server (9898):"
 read arrsport
