@@ -1,6 +1,7 @@
-# Sonarr 4K Installer
+# Sonarr Instance Installer
 ### For Swizzin installs
-Second Sonarr Installation on Swizzin based systems
+Second *arr Installation on Swizzin based systems
+# Warning: this code is untested
 
 Uses existing install as a base. you must ``sudo box install sonarr`` prior to running this script. 
 
