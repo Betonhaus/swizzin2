@@ -6,14 +6,14 @@ echo "Reading list of arr instances"
 x=-1
 for files in /opt/swizzin/core/custom/*
 do
-if [ $files != '/opt/swizzin/core/custom/__pycache__' ]; then
+if [ ".$(echo "$files"| awk -F. '{print $NF}')" == ".py" ]; then
   x=$(($x + 1))
   list[$x]=$files
   sed -n 's/^ *pretty_name *= *//p' $files | sed 's/"//g' | sed "s/$/: $x/"
 fi
 done
 echo ${list[0]}
-arrname={sed -n 's/^ *pretty_name *= *//p' ${list[0]} | sed 's/"//g'}
+arrname=$(sed -n 's/^ *pretty_name *= *//p' ${list[0]} | sed 's/"//g' )
 echo "server name is $arrname"
-arrsysname={sed -n 's/^ *name *= *//p' ${list[0]} | sed 's/"//g'}
+arrsysname=$(sed -n 's/^ *name *= *//p' ${list[0]} | sed 's/"//g')
 echo "system name is $arrsysname"
