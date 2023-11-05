@@ -2,8 +2,6 @@
 . /etc/swizzin/sources/globals.sh
 . /etc/swizzin/sources/functions/utils
 
-echo "this program is incomplete and untested, do not run"
-exit 1
 
 # Script by @ComputerByte edited by @Betonhaus
 # For Swizzin Installs
