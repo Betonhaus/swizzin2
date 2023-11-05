@@ -160,7 +160,7 @@ echo_progress_start "Patching panel."
 systemctl start $arrsysname.service >>$log 2>&1
 #Install Swizzin Panel Profiles
 if [[ -f /install/.panel.lock ]]; then
-    cat <<EOF >>/opt/swizzin/core/custom/profiles.py
+    cat <<EOF >>/opt/swizzin/core/custom/${arrsysname}.py
 class ${arrsysname}_meta:
     name = "${arrsysname}"
     pretty_name = "${arrname}"
