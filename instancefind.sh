@@ -10,7 +10,7 @@ if [ $files != '/opt/swizzin/core/custom/__pycache__' ]; then
   echo "increment"
   x=$(($x + 1))
   echo "add to list"
-  list[$x]='${files}'
+  list[$x]='$files'
   echo "run sed"
   sed -n 's/^ *pretty_name *= *//p' $files
   echo "print filename"
