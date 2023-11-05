@@ -7,18 +7,10 @@ x=-1
 for files in /opt/swizzin/core/custom/*
 do
 if [ $files != '/opt/swizzin/core/custom/__pycache__' ]; then
-  echo "increment"
   x=$(($x + 1))
-  echo "add to list"
-  list[$x]='$files'
-  echo "run sed"
+  list[$x]=$files
   sed -n 's/^ *pretty_name *= *//p' $files
-  echo "print filename"
   echo "$files"
-else
-        echo "skipping psycache"
 fi
 done
-echo "number of instances found: $x"
 echo ${list[0]}
-echo ${list[1]}
