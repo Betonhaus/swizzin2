@@ -9,7 +9,7 @@ do
 echo "add to list"
   list[$x] = "$files"
   echo "run sed"
-  sed -n 's/^ *pretty_name *= *//p' /opt/swizzin/core/custom/$files
+  sed -n 's/^ *pretty_name *= *//p' $files
   echo "print fi8lename"
   echo "$files"
   Echo "increment"
