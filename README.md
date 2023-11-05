@@ -10,16 +10,16 @@ Uses existing install as a base. you must ``sudo box install sonarr`` prior to r
 Run install.sh as sudo
 ```bash
 sudo su -
-wget "https://raw.githubusercontent.com/ComputerByte/sonarr4k/main/sonarr4kinstall.sh"
-chmod +x ~/sonarr4kinstall.sh
-~/sonarr4kinstall.sh
+wget "https://raw.githubusercontent.com/Betonhaus/swizzin2/main/arr2install.sh"
+chmod +x ~/arr2install.sh
+~/arr2install.sh
 ```
-Sometimes Sonarr1 won't start due to another Sonarr existing, use the panel to stop Sonarr and Sonarr4k, enable Sonarr and wait a second before starting Sonarr4k or
+Sometimes Sonarr1 won't start due to another Sonarr existing, use the panel to stop Sonarr and Sonarr 2, enable Sonarr and wait a second before starting Sonarr 2 or
 
 ```bash
-sudo systemctl stop sonarr && sudo systemctl stop sonarr4k
+sudo systemctl stop sonarr && sudo systemctl stop sonarr2
 sudo systemctl start sonarr
-sudo systemctl start sonarr4k
+sudo systemctl start sonarr2
 ```
 
 The log file should be located at ``/root/log/swizzin.log``.
@@ -28,8 +28,8 @@ The log file should be located at ``/root/log/swizzin.log``.
 
 ```bash
 sudo su -
-wget "https://raw.githubusercontent.com/ComputerByte/sonarr4k/main/sonarr4kuninstall.sh"
-chmod +x ~/sonarr4kuninstall.sh
-~/sonarr4kuninstall.sh
+wget "https://raw.githubusercontent.com/Betonhaus/swizzin2/main/arr2uninstall.sh"
+chmod +x ~/arr2uninstall.sh
+~/arr2uninstall.sh
 ```
 
