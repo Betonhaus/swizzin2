@@ -7,12 +7,12 @@ x=0
 for files in /opt/swizzin/core/custom/*
 do
 echo "add to list"
-  list[$x] = "$files"
+  list[$x]='$files'
   echo "run sed"
   sed -n 's/^ *pretty_name *= *//p' $files
   echo "print fi8lename"
   echo "$files"
   echo "increment"
-  x=$x+1
+  x=$(($x + 1))
 done
 print "x is $x"
