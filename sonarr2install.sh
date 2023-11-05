@@ -9,16 +9,16 @@
 
 #prompt for names and port number
 echo "Please enter the following information to connect to the server. Ensure each value is unused"
-echo "Name for new server (Sonarr 4K):"
+echo "Name for new server (Sonarr 2):"
 read arrname
 if test -z "$arrname" then
-    arrname = "Sonarr 4K"
+    arrname = "Sonarr 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
-echo "System name for new server (sonarr4k):"
+echo "System name for new server (sonarr2):"
 read arrsysname
 if test -z "$arrsysname" then
-    arrsysname = "sonarr4k"
+    arrsysname = "sonarr2"
 fi
 #code here to find random unused ports
 echo "Port for new server (8882):"
