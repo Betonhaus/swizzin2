@@ -1,7 +1,9 @@
 # Sonarr Instance Installer
 ### For Swizzin installs
 Second *arr Installation on Swizzin based systems
-# Warning: this code is untested
+# Warning: this fork is untested
+please use the original code from https://github.com/ComputerByte/sonarr4k until verified
+instructions have not been updated
 
 Uses existing install as a base. you must ``sudo box install sonarr`` prior to running this script. 
 
