@@ -12,7 +12,7 @@ echo "add to list"
   sed -n 's/^ *pretty_name *= *//p' $files
   echo "print fi8lename"
   echo "$files"
-  Echo "increment"
-  $x++
+  echo "increment"
+  x=$x+1
 done
 print "x is $x"
