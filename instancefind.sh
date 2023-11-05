@@ -20,4 +20,4 @@ else
 fi
 done
 echo "number of instances found: $x"
-echo $files
+echo ${list[0]}
