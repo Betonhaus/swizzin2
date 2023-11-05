@@ -14,3 +14,4 @@ if [ $files != '/opt/swizzin/core/custom/__pycache__' ]; then
 fi
 done
 echo ${list[0]}
+echo "version 12"
