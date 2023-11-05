@@ -9,9 +9,11 @@ do
 if [ $files != '/opt/swizzin/core/custom/__pycache__' ]; then
   x=$(($x + 1))
   list[$x]=$files
-  sed -n 's/^ *pretty_name *= *//p' $files
-  echo "$files"
+  sed -n 's/^ *pretty_name *= *//p' $files | sed 's/"//g' | sed "s/$/: $x/"
 fi
 done
 echo ${list[0]}
-echo "version 12"
+arrname={sed -n 's/^ *pretty_name *= *//p' ${list[0]} | sed 's/"//g'}
+echo "server name is $arrname"
+arrsysname={sed -n 's/^ *name *= *//p' ${list[0]} | sed 's/"//g'}
+echo "system name is $arrsysname"
