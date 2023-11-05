@@ -3,7 +3,7 @@
 # Script by @Betonhaus
 # code for finding all instances and presenting as a list to choose from
 echo "Reading list of arr instances"
-x = 0
+x=0
 for files in /opt/swizzin/core/custom/*
 do
 echo "add to list"
