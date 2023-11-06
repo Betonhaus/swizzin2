@@ -18,20 +18,20 @@ Enter server number (1):"
 read input
 case "$input" in
     "1") 
-          servname = "Sonarr"
-          servsysname = "sonarr";;
+          servname="Sonarr"
+          servsysname="sonarr";;
     "") 
-          servname = "Sonarr"
-          servsysname = "sonarr";;
+          servname="Sonarr"
+          servsysname="sonarr";;
     "2") 
-          servname = "Radarr"
-          servsysname = "radarr";;
+          servname="Radarr"
+          servsysname="radarr";;
     "3") 
-          servname = "Readarr"
-          servsysname = "readarr";;
+          servname="Readarr"
+          servsysname="readarr";;
     "4") 
-          servname = "Lidarr"
-          servsysname = "lidarr";;
+          servname="Lidarr"
+          servsysname="lidarr";;
     *) 
           echo "invalid input"
           exit 1;;         
@@ -44,25 +44,25 @@ echo "Please enter the following information to connect to the server. Ensure ea
 echo "Name for new server (${servname} 2):"
 read arrname
 if test -z "$arrname" then
-    arrname = "${servname} 2"
+    arrname="${servname} 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (${servsysname}2):"
 read arrsysname
 if test -z "$arrsysname" then
-    arrsysname = "${servsysname}2"
+    arrsysname="${servsysname}2"
 fi
 #code here to find random unused ports
 echo "Port for new server (8882):"
 read arrport
-if test -z "$arrsort" then
-    arrsort = "8882"
+if test -z "$arrport" then
+    arrport="8882"
 fi
 
 echo "Secure port for new server (9898):"
 read arrsport
 if test -z "$arrsport" then
-    arrsport = "9898"
+    arrsport="9898"
 fi
 #code here to check for conflicts, exit if any are found
 
@@ -160,7 +160,7 @@ echo_progress_start "Patching panel."
 systemctl start $arrsysname.service >>$log 2>&1
 #Install Swizzin Panel Profiles
 if [[ -f /install/.panel.lock ]]; then
-    cat <<EOF >>/opt/swizzin/core/custom/${arrsysname}.py
+    cat <<EOF >>/opt/swizzin/core/custom/profile.py
 class ${arrsysname}_meta:
     name = "${arrsysname}"
     pretty_name = "${arrname}"
