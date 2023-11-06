@@ -3,7 +3,7 @@
 # Script by @ComputerByte modified by @Betonhaus
 # For Uninstalling the additional Sonarr instances
 #prompt for name of instance to remove
-echo "Please enter the following information of the server, ensure there anre no typos"
+echo "Please enter the following information of the server, ensure there are no typos"
 echo "Proper name for server (Sonarr 2):"
 read arrname
 if test -z "$arrname" then
