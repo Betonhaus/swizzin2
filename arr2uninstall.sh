@@ -2,38 +2,56 @@
 
 # Script by @ComputerByte modified by @Betonhaus
 # For Uninstalling the additional Sonarr instances
+#prompt for server type
+#code for checking which servers are installed and only presenting them
+echo "Please enter which server type you wish to remove.
+1. Sonarr
+2. Radarr
+3. Readarr
+4. Lidarr
+Enter server number (1):"
+read input
+case "$input" in
+    "1") 
+          servname="Sonarr"
+          servsysname="sonarr";;
+    "") 
+          servname="Sonarr"
+          servsysname="sonarr";;
+    "2") 
+          servname="Radarr"
+          servsysname="radarr";;
+    "3") 
+          servname="Readarr"
+          servsysname="readarr";;
+    "4") 
+          servname="Lidarr"
+          servsysname="lidarr";;
+    *) 
+          echo "invalid input"
+          exit 1;;         
+esac
 
-# code for finding all instances and presenting as a list to choose from
-echo "Reading list of arr instances"
-x=-1
-for files in /opt/swizzin/core/custom/*
-do
-if [ ".$(echo "$files"| awk -F. '{print $NF}')" == ".py" ]; then
-  x=$(($x + 1))
-  list[$x]=$files
-  sed -n 's/^ *pretty_name *= *//p' $files | sed 's/"//g' | sed "s/$/: $x/"
+#prompt for name of instance to remove
+echo "Please enter the following information of the server, ensure there anre no typos"
+echo "Proper name for server (${servname} 2):"
+read arrname
+if test -z "$arrname" then
+    arrname="${servname} 2"
 fi
-done
-if [$x == -1]; then
-echo "no servers to remove"
-exit 1
+#code here to make lowercase and remove whitespace from input to present as default system name
+echo "System name for server (${servsysname}2):"
+read arrsysname
+if test -z "$arrsysname" then
+    arrsysname="${servsysname}2"
 fi
-
-echo "choose which server to remove (0):"
-read x
-if test -z "$x" then
-    x=0
-fi
-if test -z "${list[$x]}" then
-    echo "invalid option"
+    
+echo "removing $arrname ($arrsysname). Are you sure? y/(n):"
+read input
+if "$input"!="y" then
+  echo "exiting."
     exit 1
 fi
-
-arrname=$(sed -n 's/^ *pretty_name *= *//p' ${list[0]} | sed 's/"//g' )
-arrsysname=$(sed -n 's/^ *name *= *//p' ${list[0]} | sed 's/"//g')
-servsysname=$(sed -n 's/^ *systemd *= *//p' ${list[0]} | sed 's/"//g')
-
-
 
 
 # Log to Swizzin.log
