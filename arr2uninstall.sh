@@ -2,48 +2,18 @@
 
 # Script by @ComputerByte modified by @Betonhaus
 # For Uninstalling the additional Sonarr instances
-#prompt for server type
-#code for checking which servers are installed and only presenting them
-echo "Please enter which server type you wish to remove.
-1. Sonarr
-2. Radarr
-3. Readarr
-4. Lidarr
-Enter server number (1):"
-read input
-case "$input" in
-    "1") 
-          servname="Sonarr"
-          servsysname="sonarr";;
-    "") 
-          servname="Sonarr"
-          servsysname="sonarr";;
-    "2") 
-          servname="Radarr"
-          servsysname="radarr";;
-    "3") 
-          servname="Readarr"
-          servsysname="readarr";;
-    "4") 
-          servname="Lidarr"
-          servsysname="lidarr";;
-    *) 
-          echo "invalid input"
-          exit 1;;         
-esac
-
 #prompt for name of instance to remove
 echo "Please enter the following information of the server, ensure there anre no typos"
-echo "Proper name for server (${servname} 2):"
+echo "Proper name for server (Sonarr 2):"
 read arrname
 if test -z "$arrname" then
-    arrname="${servname} 2"
+    arrname="Sonarr 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
-echo "System name for server (${servsysname}2):"
+echo "System name for server (sonarr2):"
 read arrsysname
 if test -z "$arrsysname" then
-    arrsysname="${servsysname}2"
+    arrsysname="sonarr2"
 fi
     
 echo "removing $arrname ($arrsysname). Are you sure? y/(n):"
@@ -69,11 +39,4 @@ fi
 
 rm /install/.$arrsysname.lock
 
-sed -e "s/class $arrsysname_meta://g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    name = \"$arrsysname\"//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    pretty_name = \"$arrname\"//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    baseurl = \"\/$arrsysname\"//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    systemd = \"$arrsysname\"//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    check_theD = True//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/    img = \"${servsysname}\"//g" -i /opt/swizzin/core/custom/profiles.py
-sed -e "s/class ${servsysname}_meta(${servsysname}_meta)://g" -i /opt/swizzin/core/custom/profiles.py
+sed -e '/class ${arrsysname}_meta:/,+10d' /opt/swizzin/core/custom/profiles.py
