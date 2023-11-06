@@ -12,25 +12,25 @@ echo "Please enter the following information to connect to the server. Ensure ea
 echo "Name for new server (Sonarr 2):"
 read arrname
 if test -z "$arrname" then
-    arrname = "Sonarr 2"
+    arrname="Sonarr 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (sonarr2):"
 read arrsysname
 if test -z "$arrsysname" then
-    arrsysname = "sonarr2"
+    arrsysname="sonarr2"
 fi
 #code here to find random unused ports
 echo "Port for new server (8882):"
 read arrport
-if test -z "$arrsort" then
-    arrsort = "8882"
+if test -z "$arrport" then
+    arrport="8882"
 fi
 
 echo "Secure port for new server (9898):"
 read arrsport
 if test -z "$arrsport" then
-    arrsport = "9898"
+    arrsport="9898"
 fi
 #code here to check for conflicts, exit if any are found
 
