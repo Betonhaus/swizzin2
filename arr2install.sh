@@ -150,7 +150,7 @@ cat > /home/${user}/.config/$arrsysname/config.xml << EOSC
   <UpdateMechanism>BuiltIn</UpdateMechanism>
   <Branch>main</Branch>
   <BindAddress>127.0.0.1</BindAddress>
-  <Port>8882</Port>
+  <Port>${arrport}</Port>
   <SslPort>${arrsport}</SslPort>
   <EnableSsl>False</EnableSsl>
   <LaunchBrowser>False</LaunchBrowser>
@@ -169,7 +169,7 @@ echo_progress_start "Patching panel."
 systemctl start $arrsysname.service >>$log 2>&1
 #Install Swizzin Panel Profiles
 if [[ -f /install/.panel.lock ]]; then
-    cat <<EOF >>/opt/swizzin/core/custom/profile.py
+    cat <<EOF >>/opt/swizzin/core/custom/profiles.py
 class ${arrsysname}_meta:
     name = "${arrsysname}"
     pretty_name = "${arrname}"
@@ -177,7 +177,7 @@ class ${arrsysname}_meta:
     systemd = "${arrsysname}"
     check_theD = False
     img = "${servsysname}"
-class sonarr_meta(${servsysname}_meta):
+class ${servsysname}_meta(${servsysname}_meta):
     systemd = "${servsysname}"
     check_theD = False
 EOF
