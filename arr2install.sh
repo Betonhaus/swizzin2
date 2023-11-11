@@ -49,7 +49,7 @@ fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (${servsysname}2):"
 read arrsysname
-if [ -z "$arrsysname"]
+if [ -z "$arrsysname" ]
 then    arrsysname="${servsysname}2"
 fi
 ##TO ADD: code here to find random unused ports
