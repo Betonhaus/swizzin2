@@ -43,28 +43,37 @@ esac
 echo "Please enter the following information to connect to the server. Ensure each value is unused"
 echo "Name for new server (${servname} 2):"
 read arrname
-if test -z "$arrname" then
-    arrname="${servname} 2"
+if [ -z "$arrname" ]
+then    arrname="${servname} 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (${servsysname}2):"
 read arrsysname
-if test -z "$arrsysname" then
-    arrsysname="${servsysname}2"
+if [ -z "$arrsysname"]
+then    arrsysname="${servsysname}2"
 fi
 #code here to find random unused ports
 echo "Port for new server (8882):"
 read arrport
-if test -z "$arrport" then
-    arrport="8882"
+if [ -z "$arrport" ]
+then    arrport="8882"
 fi
 
 echo "Secure port for new server (9898):"
 read arrsport
-if test -z "$arrsport" then
-    arrsport="9898"
+if [ -z "$arrsport" ]
+then    arrsport="9898"
 fi
 #code here to check for conflicts, exit if any are found
+echo "server name: $arrname"
+echo "server system name: $arrsysname"
+echo "server port: $arrport"
+echo "server secure port: $arrsport"
+echo "Does this look correct? y(n)"
+read input
+if [ $input != "y" ]
+then exit 1
+fi
 
 # Log to Swizzin.log
 export log=/root/logs/swizzin.log
