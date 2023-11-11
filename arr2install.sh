@@ -8,7 +8,7 @@
 #shellcheck=SC1017
 
 #prompt for server type
-#code for checking which servers are installed and only presenting them
+## TO ADD: code for checking which servers are installed and only presenting them
 echo "Please enter which server you wish to install. Ensure that base server is already installed.
 1. Sonarr
 2. Radarr
@@ -52,7 +52,7 @@ read arrsysname
 if [ -z "$arrsysname"]
 then    arrsysname="${servsysname}2"
 fi
-#code here to find random unused ports
+##TO ADD: code here to find random unused ports
 echo "Port for new server (8882):"
 read arrport
 if [ -z "$arrport" ]
@@ -64,7 +64,8 @@ read arrsport
 if [ -z "$arrsport" ]
 then    arrsport="9898"
 fi
-#code here to check for conflicts, exit if any are found
+##TO ADD: code here to check for conflicts, exit if any are found
+
 echo "server name: $arrname"
 echo "server system name: $arrsysname"
 echo "server port: $arrport"
@@ -111,7 +112,7 @@ WantedBy=multi-user.target
 SERV
 echo_progress_done "$arrname service installed"
 
-# This checks if nginx is installed, if it is, then it will install nginx config for sonarr4k
+# This checks if nginx is installed, if it is, then it will install nginx config for the server
 if [[ -f /install/.nginx.lock ]]; then
     echo_progress_start "Installing nginx config"
     cat >/etc/nginx/apps/$arrsysname.conf <<-NGX
