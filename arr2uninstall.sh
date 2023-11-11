@@ -6,19 +6,19 @@
 echo "Please enter the following information of the server, ensure there are no typos"
 echo "Proper name for server (Sonarr 2):"
 read arrname
-if test -z "$arrname" then
-    arrname="Sonarr 2"
+if [ -z "$arrname" ]
+then    arrname="Sonarr 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for server (sonarr2):"
 read arrsysname
-if test -z "$arrsysname" then
-    arrsysname="sonarr2"
+if [ -z "$arrsysname" ]
+then    arrsysname="sonarr2"
 fi
     
 echo "removing $arrname ($arrsysname). Are you sure? y/(n):"
 read input
-if "$input"!="y" then
+if [ "$input" != "y" ] then
   echo "exiting."
     exit 1
 fi
