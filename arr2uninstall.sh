@@ -18,8 +18,8 @@ fi
     
 echo "removing $arrname ($arrsysname). Are you sure? y/(n):"
 read input
-if [ "$input" != "y" ] then
-  echo "exiting."
+if [ "$input" != "y" ] 
+then  echo "exiting."
     exit 1
 fi
 
@@ -42,8 +42,8 @@ rm /install/.$arrsysname.lock
 echo "do you want to automatically remove $arrname from /opt/swizzin/core/custom/profiles.py?"
 echo "this may corrupt the file if the entry does not have exactly ten lines. y/(n):"
 read input
-if "$input"!="y" then
-  echo "exiting."
+if "$input"!="y" 
+then  echo "exiting."
     exit 1
 fi
 
