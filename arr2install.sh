@@ -59,13 +59,13 @@ if [ -z "$arrsysname" ]
 then    arrsysname="${servsysname}2"
 fi
 ##TO ADD: code here to find random unused ports
-echo "Port for new server (8882):"
+echo "Port for new server. Ensure port is unused (8882):"
 read arrport
 if [ -z "$arrport" ]
 then    arrport="8882"
 fi
 
-echo "Secure port for new server (9898):"
+echo "Secure port for new server. Ensure port is unused (9898):"
 read arrsport
 if [ -z "$arrsport" ]
 then    arrsport="9898"
