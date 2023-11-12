@@ -19,19 +19,24 @@ read input
 case "$input" in
     "1") 
           servname="Sonarr"
-          servsysname="sonarr";;
+          servsysname="sonarr"
+          servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
     "") 
           servname="Sonarr"
-          servsysname="sonarr";;
+          servsysname="sonarr"
+          servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
     "2") 
           servname="Radarr"
-          servsysname="radarr";;
+          servsysname="radarr"
+          servpath="/opt/Radarr/Radarr";;
     "3") 
           servname="Readarr"
-          servsysname="readarr";;
+          servsysname="readarr"
+          servpath="/opt/Readarr/Readarr";;
     "4") 
           servname="Lidarr"
-          servsysname="lidarr";;
+          servsysname="lidarr"
+          servpath="/opt/Lidarr/Lidarr";;
     *) 
           echo "invalid input"
           exit 1;;         
@@ -88,7 +93,7 @@ chown -R "$user":"$user" /home/$user/.config/$arrsysname
 echo_progress_done "Data Directory created and owned."
 
 echo_progress_start "Installing systemd service file"
-cat >/etc/systemd/system/$arrsysname.service <<-SERV
+cat >/etc/systemd/system/${arrsysname}.service <<-SERV
 # This file is owned by the ${servsysname} package, DO NOT MODIFY MANUALLY
 # Instead use 'dpkg-reconfigure -plow ${servsysname}' to modify User/Group/UMask/-data
 # Or use systemd built-in override functionality using 'systemctl edit ${servsysname}'
@@ -102,7 +107,7 @@ Group=${user}
 UMask=0002
 
 Type=simple
-ExecStart=/usr/bin/mono --debug /opt/${servname}/${servname}.exe -nobrowser -data=/home/${user}/.config/${arrsysname}
+ExecStart=${servpath} -nobrowser -data=/home/${user}/.config/${arrsysname}
 TimeoutStopSec=20
 KillMode=process
 Restart=on-failure
