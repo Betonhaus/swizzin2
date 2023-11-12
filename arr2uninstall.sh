@@ -4,19 +4,14 @@
 # For Uninstalling the additional Sonarr instances
 #prompt for name of instance to remove
 echo "Please enter the following information of the server, ensure there are no typos"
-echo "Proper name for server (Sonarr 2):"
-read arrname
-if [ -z "$arrname" ]
-then    arrname="Sonarr 2"
-fi
-#code here to make lowercase and remove whitespace from input to present as default system name
-echo "System name for server (sonarr2):"
+echo "System (url) name for server (sonarr2):"
 read arrsysname
 if [ -z "$arrsysname" ]
 then    arrsysname="sonarr2"
 fi
+
     
-echo "removing $arrname ($arrsysname). Are you sure? y/(n):"
+echo "removing $arrsysname. Are you sure? y/(n):"
 read input
 if [ "$input" != "y" ] 
 then  echo "exiting."
@@ -39,12 +34,4 @@ fi
 
 rm /install/.$arrsysname.lock
 
-echo "do you want to automatically remove $arrname from /opt/swizzin/core/custom/profiles.py?"
-echo "this may corrupt the file if the entry does not have exactly ten lines. y/(n):"
-read input
-if "$input"!="y" 
-then  echo "exiting."
-    exit 1
-fi
-
-sed -e '/class ${arrsysname}_meta:/,+10d' /opt/swizzin/core/custom/profiles.py
+sed -i.bak -e '/class ${arrsysname}_meta:/,+10d' /opt/swizzin/core/custom/profiles.py
