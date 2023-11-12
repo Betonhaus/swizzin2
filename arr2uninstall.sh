@@ -34,4 +34,4 @@ fi
 
 rm /install/.$arrsysname.lock
 
-sed -i.bak -e '/class ${arrsysname}_meta:/,+10d' /opt/swizzin/core/custom/profiles.py
+sed -i.bak -e '/class ${arrsysname}_meta:/,+9d' /opt/swizzin/core/custom/profiles.py
