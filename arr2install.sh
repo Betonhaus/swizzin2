@@ -53,6 +53,7 @@ then    arrname="${servname} 2"
 fi
 #code here to make lowercase and remove whitespace from input to present as default system name
 echo "System name for new server (${servsysname}2):"
+echo "Warning: if name is too long or has special characters server won't launch or show up in Panel"
 read arrsysname
 if [ -z "$arrsysname" ]
 then    arrsysname="${servsysname}2"
