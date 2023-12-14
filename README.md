@@ -1,10 +1,10 @@
-# Sonarr Instance Installer
+# Sonarr/Radarr/Readarr/lidarr Secondary Instance Installer
 ### For Swizzin installs
 Second *arr Installation on Swizzin based systems
 Forked from from https://github.com/ComputerByte/sonarr4k.
 
 
-Uses existing install as a base. you must ``sudo box install readarr|radarr|sonarr|lidarr`` prior to running this script. 
+Uses existing install as a base. you must ``sudo box install readarr|radarr|sonarr|lidarr`` prior to running this script and ensure the base app is instaleld and working. 
 
 Run install.sh as sudo
 ```bash
