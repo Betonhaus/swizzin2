@@ -20,22 +20,27 @@ case "$input" in
     "1") 
           servname="Sonarr"
           servsysname="sonarr"
+          servbranch="main"
           servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
     "") 
           servname="Sonarr"
           servsysname="sonarr"
+          servbranch="main"
           servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
     "2") 
           servname="Radarr"
           servsysname="radarr"
+          servbranch="master"
           servpath="/opt/Radarr/Radarr";;
     "3") 
           servname="Readarr"
           servsysname="readarr"
+          servbranch="develop"
           servpath="/opt/Readarr/Readarr";;
     "4") 
           servname="Lidarr"
           servsysname="lidarr"
+          servbranch="master"
           servpath="/opt/Lidarr/Lidarr";;
     *) 
           echo "invalid input"
@@ -155,7 +160,7 @@ cat > /home/${user}/.config/$arrsysname/config.xml << EOSC
 <Config>
   <LogLevel>info</LogLevel>
   <UpdateMechanism>BuiltIn</UpdateMechanism>
-  <Branch>main</Branch>
+  <Branch>${servbranch}</Branch>
   <BindAddress>127.0.0.1</BindAddress>
   <Port>${arrport}</Port>
   <SslPort>${arrsport}</SslPort>
