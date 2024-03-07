@@ -10,10 +10,11 @@
 #prompt for server type
 ## TO ADD: code for checking which servers are installed and only presenting them
 echo "Please enter which server you wish to install. Ensure that base server is already installed.
-1. Sonarr
+1. Sonarr v4
 2. Radarr
 3. Readarr
 4. Lidarr
+5. Sonarr v3
 Enter server number (1):"
 read input
 case "$input" in
@@ -21,12 +22,12 @@ case "$input" in
           servname="Sonarr"
           servsysname="sonarr"
           servbranch="main"
-          servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
+          servpath="/opt/Sonarr/Sonarr";;
     "") 
           servname="Sonarr"
           servsysname="sonarr"
           servbranch="main"
-          servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;
+          servpath="/opt/Sonarr/Sonarr";;
     "2") 
           servname="Radarr"
           servsysname="radarr"
@@ -42,6 +43,11 @@ case "$input" in
           servsysname="lidarr"
           servbranch="master"
           servpath="/opt/Lidarr/Lidarr";;
+    "5") 
+          servname="Sonarr"
+          servsysname="sonarr"
+          servbranch="main"
+          servpath="/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe";;         
     *) 
           echo "invalid input"
           exit 1;;         
